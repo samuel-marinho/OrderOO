@@ -1,14 +1,14 @@
 package application;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Client {
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
     private String name;
     private String email;
     private Date birthDate;
-
-    public Client() {
-    }
 
     public Client(String name, String email, Date birthDate) {
         this.name = name;
@@ -20,26 +20,28 @@ public class Client {
         return name;
     }
 
-    public Client setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public Client setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
     public Date getBirthDate() {
         return birthDate;
     }
 
-    public Client setBirthDate(Date birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-        return this;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + sdf.format(birthDate) + ") - " + email;
     }
 }
